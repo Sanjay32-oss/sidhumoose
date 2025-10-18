@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidhu Moose Wala - Official Tribute</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #e94560;
+            --accent: #16213e;
+            --light: #f5f7fa;
+            --text: #2c3e50;
+            --border: #ecf0f1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1200" height="600" fill="url(%23dots)"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero .dates {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            font-weight: 500;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-box .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .stat-box .label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), transparent);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-top: 0.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* ===== BIOGRAPHY SECTION ===== */
+        .bio-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .bio-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .bio-image img:hover {
+            transform: translateY(-5px);
+        }
+
+        .bio-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .bio-content p {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.2), rgba(233, 69, 96, 0.05));
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            margin-top: 2rem;
+        }
+
+        /* ===== FAMILY SECTION ===== */
+        #family {
+            background: var(--light);
+        }
+
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .family-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .family-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .family-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        .family-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .family-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .relation {
+            color: var(--secondary);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .family-info p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--secondary), transparent);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: 52%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 52%;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--secondary);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .timeline-content h4 {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .timeline-content p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* ===== MUSIC SECTION ===== */
+        #music {
+            background: var(--light);
+        }
+
+        .music-category {
+            margin-top: 3rem;
+        }
+
+        .music-category h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .music-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .music-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .music-card-image {
+            position: relative;
+            overflow: hidden;
+            height: 220px;
+        }
+
+        .music-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .music-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .music-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-btn-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .music-info {
+            padding: 1.8rem;
+        }
+
+        .music-info h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .music-meta {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .music-info p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== LEGACY SECTION ===== */
+        #legacy {
+            background: var(--primary);
+            color: white;
+        }
+
+        #legacy h2 {
+            color: white;
+        }
+
+        #legacy h2::after {
+            background: linear-gradient(90deg, var(--secondary), transparent);
+        }
+
+        .legacy-content {
+            margin-top: 3rem;
+        }
+
+        .legacy-text {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .achievement-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            backdrop-filter: blur(10px);
+        }
+
+        .achievement-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .achievement-item p {
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .tribute-quote {
+            background: rgba(233, 69, 96, 0.2);
+            border-left: 4px solid var(--secondary);
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+            font-style: italic;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--accent);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin: 0.8rem 0;
+            opacity: 0.9;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 0;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                margin-top: 100px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .bio-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 40px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-marker {
+                left: -10px;
+            }
+
+            .music-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-music"></i> SIDHU MOOSE WALA
+            </div>
+            <nav>
+                <a href="#bio">Biography</a>
+                <a href="#family">Family</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#music">Music</a>
+                <a href="#legacy">Legacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>SIDHU MOOSE WALA</h1>
+            <p class="subtitle">Punjabi Legend & Global Icon</p>
+            <p class="dates">June 11, 1993 — May 29, 2022</p>
+
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <div class="number">50M+</div>
+                    <div class="label">Global Listeners</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">15+</div>
+                    <div class="label">Albums & EPs</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">100+</div>
+                    <div class="label">Hit Songs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BIOGRAPHY -->
+    <section id="bio">
+        <h2>Biography</h2>
+        <p class="section-subtitle">The man who revolutionized Punjabi music</p>
+
+        <div class="bio-wrapper">
+            <div class="bio-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlTOL32qWrh0u32hIEqcVmPIl-51UYsWbDVQ&s"
+                    alt="Sidhu Moose Wala">
+            </div>
+            <div class="bio-content">
+                <h3>Shubhdeep Singh Sidhu</h3>
+                <p><strong>Sidhu Moose Wala</strong> was born on June 11, 1993, in the village of Moosa, Mansa District,
+                    in Punjab, India. He emerged as one of the most influential Punjabi rappers and singers of his
+                    generation, bringing global recognition to Punjabi music.</p>
+
+                <p>After graduating from Guru Nanak Dev Engineering College with a degree in Electrical Engineering,
+                    Sidhu pursued his passion for music. He initially worked as a lyricist for established artists
+                    before launching his solo career, which skyrocketed to success with hits like "So High" and
+                    "Legend."</p>
+
+                <p>Named among The Guardian's 50 most promising artists in 2020, Sidhu became the first Punjabi artist
+                    to perform at Wireless Festival in London. His music addressed social issues, gangster lifestyle,
+                    and the struggles of youth in Punjab, resonating with millions globally.</p>
+
+                <div class="highlight">
+                    <strong style="color: var(--primary);">Key Achievement:</strong> His songs charted on international
+                    platforms including UK and Canadian charts, breaking barriers for Punjabi music on the global stage.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAMILY -->
+    <section id="family">
+        <h2>Family & Personal Life</h2>
+        <p class="section-subtitle">Close to his roots and family values</p>
+
+        <div class="family-grid">
+            <div class="family-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvqb6o29S2yKskwA3laevq6OiSIZJ5Sw5q_eDKttb64xBevPfNebS9Vob7TDuZpebfrMsvw7krn99vtzxUPmxYpQZ-_QEvlw"
+                    alt="Father">
+                <div class="family-info">
+                    <h3>Balkaur Singh</h3>
+                    <p class="relation">Father</p>
+                    <p>Retired Army Officer & Farmer. A strong influence on Sidhu's values and commitment to his
+                        heritage. Supported his son's music career while maintaining traditional values.</p>
+                </div>
+            </div>
+
+            <div class="family-card">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUSExIVFRUVFxUVGBcXFRUVFxUXFhcWFhUYFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGi0lHSAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4AMBIgACEQEDEQH/xAAcAAAABwEBAAAAAAAAAAAAAAAAAQIDBAUGBwj/xABHEAABAwIDBAcEBwYDBwUAAAABAAIRAwQSITEFQVFhBhMicYGRoQcyscEjQlJiktHwFDNygqKyJGPhJTRDU3PC8RY1o7PS/8QAGgEAAgMBAQAAAAAAAAAAAAAAAgMAAQQFBv/EACwRAAICAQQCAAUDBQEAAAAAAAABAhEDBBIhMTJBBRNRYXEiI5EzUoGx8RT/2gAMAwEAAhEDEQA/AOUFEjIQAWkxCUoFCEShBaJJlKUICUbUScaoiFv0cHaPgrPpC3tu/W5QOjI7Z8Fc7YtXvc7Ax78h7rXO3cgt2Ovlps5eWMnqKSsxZKQVbjo5dmT1DgPvFjPRzgVHfseuNWAd9SkPTGsLlG+zux0WokuIP+GQEFYs2DcETFMA8a1If9ybq7FuW60sX8DmVP7CSpuX1JLR549wf8EKURKSgrozPgCCCJWCHKCJGoWBEggqIEiKNEoWEggUFZYSCBRKgiSgg4IoVAAKSlYUGsUIJASk6KR4IjTPBVZKG06wHIAEkwAAJJJyAA3lAUStr0C2UBNy4TEtpzx0c7vGg7yqlJRRq0mmlnyqCJvR3YAtm46oDqro7JzbSHCNHP8AQeqtLq5dGbyBzOZ8NApFeoB2jmfgqe8uZk5fLwAzPoFlnkcvZ7nRaHHhVRj/AJIl1cDcC6N+7xKp7ouOcQE/d7Q3NExxiB3DQKKHkHrKmcZtafrHdP3Us6kskYqg76qWhrJiAJ+J9THgq0Vs5lN3NyXEknMmSmw8c/JHFHIzai5UiZeUuuaXa1GiedQDUHi4buOnBUys6NQgyNyYubbtkt909ocp1HgZWjHP0zzPxbTLjLBfkhok+aBSHUyNU6ziUxtBGlBSyIRCJOEJJCqyxBQSoRKWQSglIQrsggokstSYUssm4UbmJQCCAsQaQjVE1iewjilAQqstRGWk80CTvUgAeKLApYVDLnwJXULB3V0KdMAAtY0HhMSe8zK5rTp5ieIXSL8hpwjIAeSRmfR6P4BiTlKT+xEvbmN/65BUVeo5x1gb+feVNuXhx1yH60UN7tzRn6DmSszZ6/xVEWo5rN2fPXy3KuuahPad4K0fbgdo5/M/krqh0NfUomo+W1PeY05ZcHcz6K4tI5urybaUnVmIp0STJ38U6WRy7lLr0y0lrhBGR4hR3lMuxbwRhEZGWeqcrvyaRzCT+u9GSI9R4o4dnM+IQ/YkMdYUh8lPyDuRNcNIWizyjRECXTAJUiGzok5bsldlbSMX5wjITxYNYROEqWSiM5LITmEJLmq7KobLUDT5pUIQoQQQkp3CkEKEJw0lAhLpUvJGWILGUNgJYRimjDVVkoCVTCDWZ6pTmAKgkKc3ktZc1sRJnUAzuggH5hY8Ec1obZ2K3aWmTOCOY0nlGfglZej0HwHJtyyj9V/oIvkwB+uJ/LmiZ2jhboNTz7+PPcEdQERTZwGJ31jMwBwJzPipOyLigyoWPJlo7Ibhw4twxOyga8ys/Z6XU6hYobpf9NR0Y6KkxXqtyGbGkeTiPgFpbtpiBvXN/wD1vcNfhZXFVv32gEcgW5LU2u2qzqXXupkADXcgyJo8xPUSzzc5FJ0w2CXDrWt7Y1H2h+awD+C1u1+m1R7sDAwc3H5BZraDD77nMJcc8MiDroU3GpJcmjT65N/LZECXEhNNcnpiU5dlfEMqWB/cbdSKR1Dk+yoDvSa2ehTkzzDQXVFEKaFJpA1R0aWebpUIJDERACfdSjOVGqazKiI+AYUkhOgJDwrINwjDUp4CTiRANAcUmECUmVCifSaTlMJY7OUyq/8AaCCU6y4BzhC4sdviTA4pQ7k0y6CULngEFMO4jjgBrPglDDEwckzQu3T2gIUl9Zm7PuVO0RUxo1QBMK02VdBrg12lQjwdu88x4qO1unZTT8R+qAeaBtS4NGnyyw5Fkj6Nh0c2OKtYUyc3kufH1WD3890mGD+ZdGrdG6Ab9HSY2BkQ0HznVY72Z1QX1S6MZYxs8QC4/PNXvSDpGaDXTOSzSko8M6up1L1MlKL4Kqh0Momp9I5mEunCGNbJ45alaTbdiGWjqTG5YSAFh9hdIqZqftFZxGE9lkE56S5Tbz2mW7qb5Y5pbIgAumdCDHxQqMmZnKN9mYtuizazSWNH3gZ1HMaJf/pBok1ABwgnIjeoOzOlga/GwFo0cw7xx71fVtsdbmN4lFJzj2VFY3yqOe3FHq6j264XEeWnog18jRTrypNR8b3H0y+SajitkejHqs7yuvSIgZwEJQMbkdwHA9kSjYXRnqiMovKNEw3WcMeKfAdCIjiqTI0Nuq65INaI5pTqZ3Josz1VkoWctyYcwKSRI5pvCVLI0MPRYU49qTG9GmA0N4UHBEHGUoogA20pc0ccz3K8t9m0+Co7BpxAnfkFpqDDwQZGMghD9mUx9UKRQ2fSicKdfRMaJ+namEm/uNX4IlKzpT7qmYKAj6MDwS7WwccwCRyBI81MqbKdvc0d5k+TQShcHItTUewm2tMgQ0LP9JLOC1zN/ZgZZ8VpKZo0zhc6o4xo1rR6ud8kKtaichQ7QmHPeXObvyAgAmInmrx4JJ2SWeMlQfs12TcEVLgAhlNpGf8AxHSCWt7hJlaTbOz6d0xpJIcNCNQeY0I71vtn2Ip0GUhuYAeZI7R8SSudbdx2r3HMsMx908O5K1ELaaNOmnw0+jOWXRWqQ59S8wtzywBzd+ZiI+CFSpatY6n+00jqCJqAEnkHwrbY3SO3pNJf2sW7WPDxGqTtDpdQMsDGYSNwaI8EP6/Y+MoJcGFutjB5JbUaBuwDL1JPqp4+gpul2IwAMo05d6hX+2WTDABLtRw8EDTdcExkWgFjD9cfI8Ee2cmlIU5wVuPZCY7Lml5o2sjUEHmE4WynN0YhsP3f6InMneEt7REapktjcSqLCqU50eoj7Fx0eFMdpMQkNcFadFNWExuFgE58k11BmSVfWnRa9qgFlu/D9p5bSb/8hE+CevOh940EikKgGvVVKdQj+VrsXopZKM+aaRWYU7ToQS10gg5gggg8wUT25zKsgx1aOoyEt5AKQ+mIJzyVkI7giIRNcToja1x5d6YKZLuMOINZ9UDzWg2e9ZS2qFrjlyMrWbHYMpQziFFkmjtgCq6ngYYY7NzQ4h4GLIHKMo0T110lePo6RDSXSXANGFuXZbGm8kq62D7OCbere3LnNqGnWqUqQyDZa4tdV3k78O7fOgwAomSmwUapCpp3yaKrtyoezjJEkzJM+fBMXG1y0GDnEBVAMZBQ6j80wWW1vcnUnMqZYXH0rZO9UrKiftqkPHj8CqDR6cByWX6XbPxNL4lujt+H70cOK0VF4LQRvAPmEohZJwUlRsxz2O0ee9t7DgktOW4jL4KkZsFzvrHxXfdq7Gtqr3NeyHa4m9k58SMj4gqjf0BZM07gjk9gd6tLfglr5kVQ9rFJ2+Dl9n0aYztPzU7Zmy6lWoazW9how4tJcHZAc4PwW7f0Eccn3XZ3hlPC7wc57gPIq02Xs1jaAYxsNBdA5YjhJJ1JABJ3klFBSbuQM5RSqByTpjQdbXAI9yq0VAN06PEd4n+ZVjbum4Zy08W5jxb+Svfa7Wi6pU4jBRae8vc4n0AWFxraoqUeTmztSdGip279Rhe3e5pnzbqPJIuRpCpqF45pBBhWLNph/vDPiMj/AKpM8P8AaMjnryJDaTiAAJJyjjwW3s7Kns6iyq+kKl7V/dU4xdXzjkNXcTCrugtqH1jVObaQxDgXHJvzPgugbHtWVHGu7N7uy0n6rBpHCTJ8VhyZNstpuxY96swN4zaFb6StxGTs/IaDwVPd0a9MF5DpGbXNOFwB4Fua7RdWjSIgQqLaWy2YSIQvUyi+uB60kGjm+zOkzLiKN6A8HstrGBWpcJd9dveoO2dmGhVNNxne125zToQj6U7Ha2XsGiV1rq9jSe7N1B5pE78Jzb5ZDxWjcpLdEySg8b2sragIKbqE5AHvR1BvJIQZBETqjTAoZrgwI9E2BnKlVSGCCU/abMe8TEA7yr3pLkrZfQqtgfUDmjVsrT+zS1/aL2nSc2WMDqjuYZoO4uLR3SsbbUMFSAZkZeK7X7G9iinb1LkjtVnFrT/lsMHzfi/CEdUir3cm22yf8PX/AOlU/sK86XGRK9GbXBNCsBqaVSPwFeb9q1MJKLGLykdtWXYR4njyUZ/vkc09stvalH1fbJTfYkca3JG10OHeP9UQdJTbz2goQ9G9ELvrbOg+ZJptaf4mdh3q0q4KwPsi2ljt6lE603YgPu1Bn/W15/mC3qRJcmqLtFcaM1HA+97wP2mk5eI0PhxTopQpFdkwd7TryOR9Pgjc3n5wqGEC6pkjC33nZDlxPgJPgplCza0BoGQAA7hkm21Wtl5zJ0G8N+U6+XBMVbp7sowjgNfEqkRnLvb1btP7NVaBl1lMu3u91zR3CHeZXIV272zW3+AYd7a7PVtQLiZC0Q8TLk8hDkdMoFBrZMccvNXdA1Z1Toizq7FrR+8rEH8Zwt8myV0Kzsi2IGQAWa2Vbdmn2ScAmBwYMAjzUbb226hEU6FcQQ3EXlniG7xzyC4TbySbZ3MUflwSNpVdG+VAu7dzmuLTO5U3R2rVqUKjquKWhwaSRpvM781lau061QveTUwMkkMMSJjLPNDscnQ9tJWSduWDxOIZFZ/o3b9i6onQuaRyJHZPm0K4O26dQdWBUaY0eS6Z46+iY2Zb4atbg5jPMdYmxbhFozZ0p0zNVqWZDtyZcwDRqsekAIqE8Q13iRn6yq+mTqYC1xdxTMbVD9jZCo8A955LSbQqClSMbmmFWbCMuOc5j0RdKa80H+KVO5TSLXCKWjaVC9jB7zi1jeZcQ1vqV6h2bZto0qdFghtNjWD+UQuN9CdjiptGgYltIOqnvZkz+pzfJdsC23aRmh2xNania5p+sCPMQvMPSBpbWcw6tJae8GD8F6havNHS2n/tG6G4Vqv95R4+wc3Qxs1kBMXLs4UxmTYjMj0UGJz5hH7E+h9ogtUepkR+t6kkdoeJTFx8PyJ+SiZGbXoFtUW13TLjDKo6tx3DFEHwcGnuldvBXmu6PYYeA/QXbfZ1t/8Aa7RpJl9P6N06mBLHHmWxPMFDNex2OXo1BEpt1QYT5Hv4QnCqynX+mcMBgkNDo3gfAwkSlVGhKyT1WSIsUipoip0/NEUc89s4jZ4HGtT+Dz8lwt7V3L25ZWdEca7fSnUXEHhPx+Jly+QwQnLNk1KY4vaP6gifopmxGTXpjgS78IJ+SHI6i2SHMkd36Nvh2E/ZHlLlZbTt6MfSHsjOJyWb2TWIr0juc17fLA4fE+an3lVvW4qxIY0yGhrnYjlBMBcBS9HoYLgs7uiBbuwNDQWQBEZFZno/s2jVDmuEPbBjMEgjXzUjpBc03tjHWpAyThpv7RjjGXhCp9g3NNj+zUk8ycR7w7Mo3wgq+pa7WsKNIQGCd7tT5lZQul9Q8oHgD/8AoLR9IK+IByzdMgYZ3y8/Ieo8kFtg50lFIpOkrRjZxwD4lUzo4yrbpBWmpMTDYJ4HMx6qBbUS8gMYS47u4Suji4grOXJNy4LKxpdT23DdiiczloFA2hdB9vVMFojfxO5aXZdB9ZjGOYO1DQctTpPBZK/tz13UOJDXvaCOBBghVj5lyXO0jufs72O+kKlSo3C44WN00Hadp3t8ltQq/YbfogeMn1j5KxWpiUgBee9vbP6zat00kNBrVMzoBJJXoMuhee+mLP8Aad4A4gY92+cLsxoczvRQ7AyLhEbqGSYIcAS0OEwQDBcM95+Crq8ZgA5GNTr4qSKToPbdpG4fAKBUt3jIOnOcwCJ7xBTEJZMqUxAIJGWuUaJt1scOMuhp0lpkgZZR4wnatCo5kFzPIt9ZPwVdtS4cRhxAtboATAIEcBPmoiqJ3XYmNPL4rVex7aXV3hozlVa5scXN+kZ5AVR4rGB2EMG4ADyCf6O3vU3lGrMBr2OJ5Bwxf0lyKrVFJ1I9NgpOATMZoqZS0ijaJaZkJYQQVEOde3Jv+BonhcN9adVcPqDOF2X247XpilSs4JqOc2vO5rG4mCd8kk/hK41MklOx+Jly+RHj0Vp0WZN0wcn/ANpVWdVddCxN5THEP/tKXnf7b/AWLzRv6N8RRoVvsOE+Esf6QfBbqg4OdMjMCD5lYPZbB1VSkfquee6HZ+jgVW0tqVLeuaby403ZsIObdxb4H0K4EVbZ3ISpUzoe1NlPJxNuC3I5QN+sLHXlixr+0Q4jMEgTPenbvabj2m1pERD29oeX5LP7RvwAXPqSUW5t0aKVcl1tjaIcA0CJhoHfkqrHL4G7LPQBuQJ8c1AsqtSpFQgicqbTrzeeGSuLbZ7iQwak5n4omtvZkyz3vgh7M6F3tyXdXgdGeI1A0GTnkc/RWezugd/QrU6j2Ma0OzPWtOW+AMzkri1qluMUZBZDC+TMnMgcN3mruxuqtQ4C5zy0TJJMTqf1wTv/AEqUarkTixtS4KO16NNpOkV6wh5eMOHKXSAAZ0T+0+gNo5xrNDmVZxlxcXBzpkktJgSeEJixvib1z34mW9MFpfBdLhrpoNZPJbHaV4xtPESCCJbzESCFcZsfNJ8Iu9n08LGt4ADy1UuEim1OBdE5hEquyPELgXSV+LaF07jVd6GPku9Xpg94XAdqmby4P+bU/vKOAGTpEerwTFTsqTVrKBfP3IxBFr3TnGCcuCYvmw3y9T+QKlWVvLs0jbjowgCM/gP9Vd80RC3CWgKG3N7WneQ0+OSlNOQ7lHp/vWfxt+KNCj0v0XvTWtaFU6vpU3HvLRPrKtjqsl7Mqxds635NLfwvcB6Ba1qS+zdF2hSCJKQMKzh3tyb/AI6meNsweVWpPxXOmaldP9vFOLi2dxpPH4XtP/cuY0t6dHox5PJkeoM1e9BDF9T5ioP6CfkqOtqrjoo7DfW54lzfEscB6wlZ+ccvwMxeaOi2jCyrWynC9riOLKrXB3mGtUTb2wzVaXUnY30ocAPfLf4d8tggiZwq2aYvS3/mW4/E17iPRpU19j22YTheycLtzmnN1N3KcxwzXn7aaZ2YmfbZ061JriCHgQcv/BCiUui+JwyJ1OKPdG+J1PDvXQaT3j3mGDvBDh+fopdOiMUaBsF3N31W+GvkopNdDJZFRk6WwW0hicO0YaBwG5rR+pT9W16huhdWqSGtGZHIfM6BaS6Y0Q931cwN86CBxz84RWlpiOJwGI68hubPAepkquWKKnYex3MphriC4uNR5GYxHQDjACtKd02k14y7cARJcTmMgNU7f1gAQNAO0Rl3NHM+gBKzNjtCs6pUNOljLobTdiDBTAnFqDA004Io3fBErLd/V0WB9QARm2nA8JG7uWPudqVrt7mNg4Tro1jdxe7d3alSamzGh5N7d451pUpaDydUPa/CGquvrp1X6CyohtJhk4BhaN5L36d+8p6ikh64O2gI0aSV1jkEPazexPOO6dD5rzrVuHdbVcWhxL3k5xq4kxkvSN6zFTe3i0x37vVeY7GtiLidc570yHTE5e0HWv8AP908fhPzTD79nA+LT8lOeOSjPcC1wEj3myRoRIziYVixNDaNIEku7uy78lXbRuxUqAtBDW6TqSdSeG5WX7ODHBEbYATCtFEcHJMU/wB43+IJ+pkmAe2Dz+CYLrk9BezFuHZ1tzYT5vcVrJKznQGlh2faj/IpnzbPzWlCS+zZHoOEioY70ouSHnIk7kARx/250zitXcq4/wDqPyXL2b11H2v7Ut64oU6VZlSpTe/GGHEGhzQM3DKZAymVy5wh3FOj0ZcnMmM1ArLojQNTaFs3/MDvBgLz/aoFUQtL7LLXHtAO3U6T3TzdDB/cUrPKscn9gsKuaN7W/wDcQOFFpHg8/IlampR0KyO06obtBjvuNa7udjHzBW5pUsQG6NSvPvo7HQqgMp/QTlP0GnM8SiI0boP1meag7ZvcLerZ77sp+yNJjjuHPuVPgnbG2O62tl7lEmT9qqRoOTQfMjgrKs/AyB7ztB3pizoNoUgDrrGpnnxM/FVW2No4ctXuyjh90cuJ8EN0XVkTa9zl1bTJMknv953yHJNMpPZTa+m/BgnOAZBHakHXQeSbt6BLi2ZcSMbvkFZ3zR1eCPe3Dh/4y7yFF9SPgoqtjasL33LalxXMOBLS9p7IhoYOyCOYUOm67rOFABlvTeHZGIaGtJMNbAJIGkrS2eZcTB5895HKZ8k1tKi12Tmgg7iJCd81+wlM6MiKNIeF3DmEW5uXNOi877fsm0L24pj3cZc3k18PA8MUeC9DXVOQZJXm/pc2pRvqzarsbi7Fi0xNcAW5boEDwTMaE5fQu3pYs4yTlehIIJhpyMAS4cCfnrzTFjftdlOE8Dv7lLerYtMYqNiEKrMkdRLrHshQhUXQz1T1wyjhpGlix4HGrMxiwzlIEZ4tJERvTNYSUmxEuI4tI8SQ35pi6Fs9NdHKAbbUW/ZpUx5MAVlCjbObDGt4ADyEKUkPs3JcAhZb2k7Ifc7PrMYSHMAqgAnt9XmWEb5bOXGFqURVEas8t21u97HPp0nuZTBLnNBLWxnm4ZBVbnS6V6nr2FPAaYY1rCCMIaAIOuQyXmHaFr1VapS/5b3s/C4geiapbjLKG0YrHJdH9jdk3qriv9Y1G0+5rGh/qX/0rnD9Cuo+xy4pGg+no6SH95Lixw7wS3+ULJrf6Q/Sr9Yu7oGreOH2oaOUQAuhW47IE5Dfx4lZZ+xLincuqsptqMcIBxtbhPEh3Lgrqna1MP01ZrWj6lKfI1HRPgAuI2dZ00TK9yG5MGN+4DX/AEHM5KHa2vVuNSo4PrOzyzazgGDUndJ8IQr3rQCKYDWDU/mfrFUV3t7Iin4u4+PyCByIolrtLaQZmSS7QAZ58vtO56Dmquiw5vd778gOA5eaXYWZ/e1s3uHYZvaDoSN08Fa2tlnid7x0+6OSpFsK1tMIDd7tTy+sfl4qLtSvrGp+jZyA993nl/KrWt2Q50xlE/ZAzJ/W+FmLmoTLzlMNYODAjFsttlU5E7vgBp+uajOficTzUqrU6q3+8/IfMqHZtyUIjpKSUpFC9Cc8hXbJC4V7YbMtu6dTc+nhHexxJ9Hhd7uqctXI/bFbjqKbjGJlWBzDmnF6tb5JmN8isvRzSmWRm0FW1qyW9kkjh70eOqrLJ5HDyn5qW+jOcN75IPqEchMSRW0OR5wDl38Em6f2G+Kq9o6tBcSAIAJDgJnQblOqEEwPqtA/NCWQbgwE5sNk1Wj7TqbfxVWKPcv1Vr0KYHXdBp31qQ8iXfJNXQv2elLTRPpq2bkngFmZvQSRUKWQkPUIRar4Xnv2lWPV3z3D3avbHfo71E+K7/eHIrhvtRrh1Slnp1g/sRQ7E5ejGP8AdXQ/ZZYVGMNc5MqAhpiRIMEO4aLnVQ5arsns1tXNs2OFQgEkxqFk18qxjdDG5k++uQCTUNMfwVXUyfAHNVZ2y52VGi+odx7b/XMrXO6z7p54U9Rp1CMz4AQuLVnVfHoxzNk3NYh1w/q27mAS7wYDA73FXlhsemzNrJI+tUOIjub7oPh4qyo2uHmpTafHIcOKlA2RaFpniOZ4neU9h3p59VoUO5uwBlr8OZVlOyBtaoXEUhvzd3Dd+t5VXbUxUrR9SnmeAAT13cQHEe84ZcY/MzKiPqCjT6v674L+Q3N7955mNyhQ7eVjVq5aDJo5BTKLIyULZjYBcVMFSRiUKZrEEEF6AwDdTRYfp3+7b/GPg5BBFHsCfRkqKm0UEEbFIi7Q94JbfrIIKi2RCrDo/wD7xR/6jPmggiBXZ1qjonEEEk0hFNuRIKFka40XNuk3vjvd8QggiiKmVDtFvujH+7s8UEFk1vijRovJl0xOoILAjZkEtSauiCCsAjjVQqn1u4fFyCCotjH/ABG/xN+LVAuffKNBWCTqXupbPd8EEFCM/9k="
+                    alt="Mother">
+                <div class="family-info">
+                    <h3>Charanjeet Kaur Sidhu</h3>
+                    <p class="relation">Mother</p>
+                    <p>Former Sarpanch (Village Leader) of Moosa. A respected community leader and the backbone of the
+                        family. Sidhu remained deeply connected to her throughout his life.</p>
+                </div>
+            </div>
+
+            <div class="family-card">
+                <img src="data:image/jpeg;base64,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"
+                    alt="Sidhu">
+                <div class="family-info">
+                    <h3>The Legend</h3>
+                    <p class="relation">Shubhdeep Singh Sidhu</p>
+                    <p>Called "Gaggu" by family. Despite global success, remained rooted in his village values.
+                        Unmarried at the time of his death. Close to his grandmother and extended family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline">
+        <h2>Career Timeline</h2>
+        <p class="section-subtitle">A journey from lyricist to global icon</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h4>2016 - The Beginning</h4>
+                    <p>Began career as a lyricist, writing for Ninja's hit "License." This breakthrough opened doors to
+                        the music industry and established his talent for meaningful lyrics.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h4>2017 - Solo Breakthrough</h4>
+                    <p>Debuted with "G Wagon" followed by the massive hit "So High," which changed his career
+                        trajectory. Won Best Lyricist Award at Brit Asia TV Music Awards.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h4>2018 - Album Release & Acting</h4>
+                    <p>Released debut album "PBX 1," which charted at #66 on Billboard Canadian Albums. Simultaneously
+                        launched acting career in Punjabi films like "Dakuaan Da Munda."</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h4>2019-2020 - Global Recognition</h4>
+                    <p>Singles "47" and "Mera Na" charted on UK Singles Chart. Named by The Guardian among 50 upcoming
+                        artists. Multiple Brit Asia TV Awards including Track of the Year.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h4>2020 - Label Launch</h4>
+                    <p>Founded "5911 Records," his own record label. Released album "Snitches Get Stitches." Continued
+                        collaborations with international artists, expanding his global reach.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h4>2021-2022 - Peak Success</h4>
+                    <p>Released albums "Moosetape" and "No Name." First Punjabi artist to perform at Wireless Festival
+                        London. Songs dominated charts across UK, Canada, and New Zealand markets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MUSIC -->
+    <section id="music">
+        <h2>Discography & Hit Songs</h2>
+        <p class="section-subtitle">A collection of masterpieces that defined a generation</p>
+
+        <div class="music-category">
+            <h3><i class="fas fa-compact-disc"></i> Studio Albums</h3>
+            <div class="music-grid">
+                <div class="music-card">
+                    <div class="music-card-image">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=300&fit=crop"
+                            alt="PBX 1">
+                        <div class="play-overlay">
+                            <div class="play-btn-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="music-info">
+                        <h4>PBX 1</h4>
+                        <p class="music-meta">2018 — Debut Album</p>
+                        <p>His groundbreaking debut album that established him in the music industry. Charted on
+                            Billboard Canadian Albums at #66.</p>
+                    </div>
+                </div>
+
+                <div class="music-card">
+                    <div class="music-card-image">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=300&fit=crop"
+                            alt="Snitches Get Stitches">
+                        <div class="play-overlay">
+                            <div class="play-btn-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="music-info">
+                        <h4>Snitches Get Stitches</h4>
+                        <p class="music-meta">2020 — Major Release</p>
+                        <p>A mature project showcasing evolved production and diverse musical styles, consolidating his
+                            status as a major artist.</p>
+                    </div>
+                </div>
+
+                <div class="music-card">
+                    <div class="music-card-image">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop"
+                            alt="Moosetape">
+                        <div class="play-overlay">
+                            <div class="play-btn-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="music-info">
+                        <h4>Moosetape</h4>
+                        <p class="music-meta">2021 — Label Project</p>
+                        <p>Ambitious compilation featuring collaborations with top artists. Defined his peak creative
+                            period and global influence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="music-category">
+            <h3><i class="fas fa-star"></i> Hit Singles</h3>
+            <div class="music-grid">
+                <div class="music-card">
+                    <div class="music-card-image">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=300&fit=crop"
+                            alt="So High">
+                        <div class="play-overlay">
+                            <div class="play-btn-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="music-info">
+                        <h4>So High</h4>
+                        <p class="music-meta">2017 — Breakthrough</p>
+                        <p>His breakthrough hit that brought international recognition and established his signature
+                            style. Still a fan favorite.</p>
+                    </div>
+                </div>
+
+                <div class="music-card">
+                    <div class="music-card-image">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop"
+                            alt="Legend">
+                        <div class="play-overlay">
+                            <div class="play-btn-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="music-info">
+                        <h4>Legend</h4>
+                        <p class="music-meta">2019 — Track of the Year</p>
+                        <p>Won Brit Asia TV Music Award for Track of the Year. An anthem that defined his artistic
+                            excellence.</p>
+                    </div>
+                </div>
+
+                <div class="music-card">
+                    <div class="music-card-image">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=300&fit=crop"
+                            alt="47">
+                        <div class="play-overlay">
+                            <div class="play-btn-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="music-info">
+                        <h4>47</h4>
+                        <p class="music-meta">2019 — UK Chart</p>
+                        <p>Ranked on UK Singles Chart, proving his global appeal. A pivotal moment for Punjabi music
+                            internationally.</p>
+                    </div>
+                </div>
+
+                <div class="music-card">
+                    <div class="music-card-image">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=300&fit=crop"
+                            alt="Mera Na">
+                        <div class="play-overlay">
+                            <div class="play-btn-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="music-info">
+                        <h4>Mera Na</h4>
+                        <p class="music-meta">2020 — International Hit</p>
+                        <p>Charted on UK Singles Chart. Showcased his ability to create tracks with international appeal
+                            and depth.</p>
+                    </div>
+                </div>
+
+                <div class="music-card">
+                    <div class="music-card-image">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop"
+                            alt="Never Fold">
+                        <div class="play-overlay">
+                            <div class="play-btn-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="music-info">
+                        <h4>Never Fold</h4>
+                        <p class="music-meta">2020 — Canadian Hot 100</p>
+                        <p>Peaked at #92 on Canadian Hot 100. A powerful anthem about resilience and perseverance.</p>
+                    </div>
+                </div>
+
+                <div class="music-card">
+                    <div class="music-card-image">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=300&fit=crop"
+                            alt="Bambiha Bole">
+                        <div class="play-overlay">
+                            <div class="play-btn-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="music-info">
+                        <h4>Bambiha Bole</h4>
+                        <p class="music-meta">2021 — Punjabi Hip-Hop</p>
+                        <p>A fan favorite showcasing his lyrical prowess and storytelling ability. Featured in popular
+                            Punjabi films.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEGACY -->
+    <section id="legacy">
+        <h2>Legacy & Impact</h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">A legend whose influence continues to inspire
+        </p>
+
+        <div class="legacy-content">
+            <p class="legacy-text">
+                <strong>Sidhu Moose Wala was tragically assassinated on May 29, 2022,</strong> in his hometown of
+                Jawaharke, Mansa District, at just 28 years old. His death sent shockwaves through the music world and
+                deeply impacted his millions of fans globally.
+            </p>
+
+            <p class="legacy-text">
+                Despite his brief life, Sidhu left an indelible mark on Punjabi music and global music culture. He
+                transformed the perception of Punjabi music internationally and proved that regional artists could
+                achieve mainstream global success.
+            </p>
+
+            <div class="achievements">
+                <div class="achievement-item">
+                    <h4><i class="fas fa-music"></i> Music Revolution</h4>
+                    <p>First Punjabi artist to perform at Wireless Festival. Brought Punjabi hip-hop to mainstream
+                        international audiences.</p>
+                </div>
+
+                <div class="achievement-item">
+                    <h4><i class="fas fa-globe"></i> Global Recognition</h4>
+                    <p>Named by The Guardian among 50 upcoming artists. Charted on UK, Canadian, and New Zealand charts.
+                        50M+ global listeners.</p>
+                </div>
+
+                <div class="achievement-item">
+                    <h4><i class="fas fa-award"></i> Major Awards</h4>
+                    <p>Multiple Brit Asia TV Music Awards including Track of the Year. Best Lyricist Award. Recognition
+                        from international music bodies.</p>
+                </div>
+
+                <div class="achievement-item">
+                    <h4><i class="fas fa-microphone"></i> Record Label</h4>
+                    <p>Founded 5911 Records, launching new artists and establishing a creative studio. Produced quality
+                        content across mediums.</p>
+                </div>
+
+                <div class="achievement-item">
+                    <h4><i class="fas fa-film"></i> Multi-Talented</h4>
+                    <p>Not just a musician but also an actor, producer, and entrepreneur. Worked across film, music, and
+                        digital platforms.</p>
+                </div>
+
+                <div class="achievement-item">
+                    <h4><i class="fas fa-heart"></i> Community Connection</h4>
+                    <p>Remained rooted in his village despite global success. Supported social causes and gave voice to
+                        youth struggles in Punjab.</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--secondary); margin-top: 3rem; margin-bottom: 1.5rem; font-size: 1.5rem;">Tributes
+                from Industry Leaders</h3>
+
+            <div class="achievement-item">
+                <p><strong style="color: var(--secondary);">Raja Kumari (International Artist):</strong> "He played a
+                    huge role in popularizing Punjabi music globally and creating opportunities for female artists in
+                    the industry. His loss is irreplaceable."</p>
+            </div>
+
+            <div class="achievement-item">
+                <p><strong style="color: var(--secondary);">Honey Singh (Music Producer/Rapper):</strong> "Sidhu took
+                    Punjabi Music to the global stage. He was a true innovator and brought international recognition to
+                    our culture."</p>
+            </div>
+
+            <div class="achievement-item">
+                <p><strong style="color: var(--secondary);">Badshah (Indian Rapper):</strong> "A legend who remained
+                    authentically connected to his roots despite achieving global success. His music will inspire
+                    generations."</p>
+            </div>
+
+            <div class="achievement-item">
+                <p><strong style="color: var(--secondary);">Music Industry:</strong> "His death marked a tragic loss for
+                    Punjabi music. His influence on the industry will be felt for decades to come."</p>
+            </div>
+
+            <div class="tribute-quote">
+                <p>"He lived by his music and his roots. His legacy will inspire generations to pursue their dreams
+                    while staying true to their culture and values."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p><strong style="font-size: 1.2rem;">SIDHU MOOSE WALA</strong></p>
+            <p>June 11, 1993 — May 29, 2022</p>
+            <p style="font-size: 1.1rem; font-weight: 600; color: var(--secondary);">A Legend Forever In Our Hearts 🙏
+            </p>
+
+            <div class="footer-divider"></div>
+
+            <p style="margin-bottom: 0;">This tribute website celebrates the life, music, and legacy of Punjabi legend
+                Sidhu Moose Wala</p>
+            <p style="margin-bottom: 0;">Images sourced from premium stock photography | All information compiled from
+                verified sources</p>
+            <p style="font-size: 0.9rem; opacity: 0.7;">© 2024 Sidhu Moose Wala Tribute | Dedicated to his memory and
+                artistic contributions</p>
+
+            <div class="social-links">
+                <a href="#" style="color: var(--secondary); text-decoration: none;"><i class="fab fa-spotify"></i></a>
+                <a href="#" style="color: var(--secondary); text-decoration: none;"><i class="fab fa-youtube"></i></a>
+                <a href="#" style="color: var(--secondary); text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: var(--secondary); text-decoration: none;"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
